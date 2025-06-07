@@ -1,0 +1,141 @@
+Properties:
+- reliable end to end testing1 - autowait until things are visible
+- cross browser testing
+- multiplatform testing support
+- Multilingual flexibility
+
+> tracing and debugging
+> network interception
+> browser context management
+> Codegen tool
+
+
+playwright.confiig.js file:
+
+contains all configurations
+
+- testDir: './tests' - here we can add files which needs to be run ('./tests/myfile')
+
+- time out - default for 30 sec
+
+we can add all the required configs in this file
+
+const name = ({
+
+required configurations can be added
+
+
+})
+module.export = name (this will export all the added configurations to different test files
+
+
+
+
+- xpath, css selectors
+
+use css seelctors more
+rules for using css selector are-- 
+if ID is present > tagname#id or #id ----> input#username
+if class is present > tagname.class > input.form-control
+using any attribute > [attribute='value'] --- [name='username']
+traversing from parent to Child = parenttagname >> childtagname
+text=' '
+
+
+
+Dropdowns:
+
+
+
+
+to run - npx playwright test --ui  //playwright test runner - here we can run test by selecting the file
+
+
+
+
+
+parallel test runner
+
+import { test } from '@playwright/test';
+
+test.describe.configure({ mode: 'parallel' }); //this will run tests in parallel, serial - then oe is failed then all others will be skipped below it. inter related test cases can use SERIAL
+
+test('runs in parallel 1', async ({ page }) => { /* ... */ });
+test('runs in parallel 2', async ({ page }) => { /* ... */ });
+
+
+// add in config file also to run tests in parallel - fullyParallel: true,
+
+
+config file > different configuration understand,,,,,,,
+
+
+we can run tests which have specific annotation, example, @Web we given with the name of the different tests, then in terminal
+npx playwright test --grep=@Web
+
+
+we can create a new config file, and run with that configura..
+npx playwright test tests/E2E Shopping page PO.spec.js --config playwright.config2.js --project=chrome
+
+
+trace.playwright.dev website to open traces,,,
+
+Drive execution thru package.json
+we can configure our projects in this file and we can call easily in terminal to execute - npm run webTests
+{
+  "name": "demo-folder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+
+    "regression" : "npx playwright test",
+    "webTests" : "npx playwright test --grep @Web",
+    "chromeNewConfig": "npx playwright test --config playwright.config2.js --project=chrome"
+
+
+
+in step definition, if we called a variable as this.poManager, then it can be used by all other methods in this definition.
+
+
+Cucumber hooks:
+
+before will runs for every scenario
+before all - runs only once before all sceanrios
+
+
+Can run multiple scenarios parallely in a feature file
+but can't run different feature files parallely
+
+
+npx cucumber-js features/Ecommerce.feature --parallel 2 --retry 1 --exit --format html:cucumber-report.html
+npx cucumber-js --tags "@Regression" --parallel 2 --retry 1 --exit --format html:cucumber-report.html  
+
+
+page.$(selector) = matches with the first element
+
+resource grp - testingPR
+instance name - PlaywrightInstanceDileep
+
+
+
+
+--------------------------------------------------------------------------------------
+
+playwright using javascript
+- JavaScript basics need to know
+- playwright, what is playwright? how to automate with pw?
+- mocha framework = it is kind of scripting which have test spec files
+- POM - classes with methods for each functionality, separate file for testData, separate test file where we are interconnecting all these
+- BDD cucumber - 
+
+how to handle frames, dialog boxes
+how to handle with new tab
+excel automation
+
+
+
+
+1. Login step
+2. Find product and add to cart
+3. Checkout
+4. Place order
